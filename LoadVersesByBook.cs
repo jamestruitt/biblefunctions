@@ -26,9 +26,11 @@ namespace biblefunctions
             // Set name to query string or body data
             name = name ?? data?.name;
 
+            var commonData = new CommonDataService.BibleInfo();
+
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Welcome " + name);
+                : req.CreateResponse(HttpStatusCode.OK, "book Count: " + commonData.GetBibleInfo().Count);
         }
     }
 }
