@@ -1,4 +1,4 @@
-﻿namespace CommonDataService
+﻿namespace biblefunctions
 {
     public class BibleChapterInfo
     {

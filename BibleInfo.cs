@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
-namespace CommonDataService
+namespace biblefunctions
 {
     
 
@@ -17,6 +17,12 @@ namespace CommonDataService
         public IList<BibleChapterInfo> GetBibleInfo()
         {
             return _bibleChapterList;
+        }
+
+        public BibleChapterInfo FindBibleChapterInfo(string name)
+        {
+            var foundBook = _bibleChapterList.SingleOrDefault(book => book.Name == name);
+            return  foundBook;
         }
 
         private void LoadInfo()
