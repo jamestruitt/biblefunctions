@@ -1,0 +1,18 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_EXTENSION_VERSION": "~1",
+    "ScmType": "GitHub",
+    "AzureWebJobsSecretStorageType": "disabled",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "FUNCTION_APP_EDIT_MODE": "readonly",
+    "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;AccountName=biblefunctionsa47e;AccountKey=ozyI9NAbqbWfnWNGmEOD9/pyITmoFzCwzXovDYiRO/qwV7woSrLe4ojrDmTLGnoqggchDKcGwbfpyQ/Kmqa/Zw==",
+    "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=biblefunctionsa47e;AccountKey=ozyI9NAbqbWfnWNGmEOD9/pyITmoFzCwzXovDYiRO/qwV7woSrLe4ojrDmTLGnoqggchDKcGwbfpyQ/Kmqa/Zw==",
+    "WEBSITE_CONTENTSHARE": "biblefunctionsa47e",
+    "WEBSITE_SITE_NAME": "biblefunctions",
+    "WEBSITE_SLOT_NAME": "Production",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=biblefunctionsa47e;AccountKey=ozyI9NAbqbWfnWNGmEOD9/pyITmoFzCwzXovDYiRO/qwV7woSrLe4ojrDmTLGnoqggchDKcGwbfpyQ/Kmqa/Zw==",
+    "Test": "Hello World" 
+  }
+}
