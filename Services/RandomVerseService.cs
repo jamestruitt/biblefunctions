@@ -2,9 +2,9 @@
 
 namespace biblefunctions.Services
 {
-    class RandomVerseService
+    public class RandomVerseService
     {
-        public string GetRandomVerse()
+        public string GetRandomNivVerse()
         {
             var client = new HttpClient();
 

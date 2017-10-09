@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -12,7 +11,8 @@ namespace biblefunctions
 {
     public static class LoadVersesByBook
     {
-        public static BibleConfigService bibleConfigService = new BibleConfigService();
+        public static BibleConfigService BibleConfigService = new BibleConfigService();
+        public static RandomVerseService RandomVerseService = new RandomVerseService();
 
         [FunctionName("LoadVersesByBook")]
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
@@ -26,16 +26,24 @@ namespace biblefunctions
             var name = data.Name;
             var chapter = data.Chapter;
    
-            log.Info(string.Format("Book Recieved:{0} Chapter Passed in:{1}",name,chapter));
+            log.Info($"Book Recieved:{name} Chapter Passed in:{chapter}");
 
-            var book = bibleConfigService.FindBibleConfigInfo(name);
+            var book = BibleConfigService.FindBibleConfigInfo(name);
 
             if (book != null)
-                log.Info(string.Format("Book {0} was found and has {1} chapters", book.Name, book.NumberofChapters));
-            
+            {
+                log.Info($"Book {book.Name} was found and has {book.NumberofChapters} chapters");
+                
+                for (var i = 0; i < book.NumberofChapters-1; i++)
+                {
+                    log.Info(RandomVerseService.GetRandomNivVerse());
+                }
+            }
+
             return book == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, string.Format("{0} was not found", name).ToString())
-                : req.CreateResponse(HttpStatusCode.OK, string.Format("Book {0} was found and has {1} chapters",book.Name,book.NumberofChapters));
+                ? req.CreateResponse(HttpStatusCode.BadRequest, $"{name} was not found")
+                : req.CreateResponse(HttpStatusCode.OK,
+                    $"Book {book.Name} was found and has {book.NumberofChapters} chapters");
         }
     }
 }
